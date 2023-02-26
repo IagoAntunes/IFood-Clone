@@ -7,15 +7,36 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_typography.dart';
 
 class ContentTabBarComponent extends StatelessWidget {
-  const ContentTabBarComponent({
-    super.key,
-    required this.tabController,
-    required this.onTap,
-  });
   final TabController tabController;
   final Function(int) onTap;
+  const ContentTabBarComponent({
+    super.key,
+    required this.onTap,
+    required this.tabController,
+  });
+
   @override
   Widget build(BuildContext context) {
+    return SliverPersistentHeader(
+      delegate: _ContentTabBarComponentDelegate(
+        onTap: onTap,
+        tabController: tabController,
+      ),
+    );
+  }
+}
+
+class _ContentTabBarComponentDelegate extends SliverPersistentHeaderDelegate {
+  final TabController tabController;
+  final Function(int) onTap;
+  _ContentTabBarComponentDelegate({
+    required this.onTap,
+    required this.tabController,
+  });
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 230),
       child: TabBar(
@@ -46,5 +67,16 @@ class ContentTabBarComponent extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  double get maxExtent => 60;
+
+  @override
+  double get minExtent => 60;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }

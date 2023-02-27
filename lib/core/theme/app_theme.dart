@@ -4,6 +4,6 @@ class AppTheme {
   static ThemeData get theme => ThemeData(
         primarySwatch: Colors.red,
         fontFamily: 'Nunito Sans',
-        textTheme: TextTheme(),
+        textTheme: const TextTheme(),
       );
 }

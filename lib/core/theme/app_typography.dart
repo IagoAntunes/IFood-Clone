@@ -23,6 +23,14 @@ class AppTypography {
         );
   }
 
+  static TextStyle filterItemStyle(BuildContext context) {
+    return Theme.of(context).textTheme.bodyText1!.copyWith(
+          color: AppColors.primaryColor,
+          fontWeight: FontWeight.w700,
+          fontSize: 13,
+        );
+  }
+
   static TextStyle tabBarStyle(BuildContext context) {
     return Theme.of(context).textTheme.bodyText1!.copyWith(
           color: AppColors.primaryColor,

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 import '../../../core/theme/app_colors.dart';
@@ -37,8 +35,9 @@ class _ContentTabBarComponentDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
+    var width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 230),
+      padding: EdgeInsets.only(left: 16, right: (width / 2) - 16),
       child: TabBar(
         onTap: onTap,
         overlayColor: MaterialStateProperty.all(Colors.transparent),
@@ -54,7 +53,7 @@ class _ContentTabBarComponentDelegate extends SliverPersistentHeaderDelegate {
           bottomRightRadius: 5,
         ),
         controller: tabController,
-        tabs: [
+        tabs: const [
           Tab(
             child: Align(
               alignment: Alignment.centerLeft,

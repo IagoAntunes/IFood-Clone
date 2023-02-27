@@ -28,6 +28,7 @@ class _HeaderLocationComponentDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
+    // ignore: avoid_unnecessary_containers
     return Container(
       child: Column(
         children: [

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ifood/core/theme/app_colors.dart';
 import 'package:ifood/core/theme/app_icons.dart';
-import 'package:ifood/core/theme/app_typography.dart';
 import 'package:ifood/models/category.dart';
 import 'package:ifood/views/content/components/bottom_navigator_component.dart';
 import 'package:ifood/views/content/components/category_item_component.dart';
+import 'package:ifood/views/content/components/filters_component.dart';
 import 'package:ifood/views/content/components/header_local_component.dart';
-import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 import '../../controllers/content_controller.dart';
 import 'components/content_tab_bar_component.dart';
@@ -34,16 +33,18 @@ class _ContentPageState extends State<ContentPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: NestedScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
-              HeaderLocationComponent(location: 'Rua Flores do Campo,10'),
+              const HeaderLocationComponent(location: 'Rua Flores do Campo,10'),
               ContentTabBarComponent(
                 tabController: tabController,
                 onTap: (index) {},
               ),
+              const FiltersComponent()
             ];
           },
           body: Column(
@@ -54,14 +55,14 @@ class _ContentPageState extends State<ContentPage>
                     return await Future.value();
                   },
                   child: CustomScrollView(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     slivers: [
                       SliverToBoxAdapter(
                         child: SizedBox(
                           height: 86,
                           child: ListView.builder(
                             itemCount: categorys.length,
-                            physics: BouncingScrollPhysics(),
+                            physics: const BouncingScrollPhysics(),
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
                               return Padding(

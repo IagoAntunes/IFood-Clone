@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ifood/core/theme/app_colors.dart';
-import 'package:ifood/core/theme/app_images.dart';
 import 'package:ifood/core/theme/app_typography.dart';
 import 'package:ifood/models/category.dart';
 
